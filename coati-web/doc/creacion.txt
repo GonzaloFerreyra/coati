@@ -1,0 +1,70 @@
+INSTALACIÓN DE LAS HERRAMIENTAS PARA DESARROLLO Y CONFIGURACION DEL ENTORNO PARA NETBEANS//ECLIPSE
+==================================================================================================
+* Instalación del servidor de desarrollo de google app engine:
+-------------------------------------------------------------
+https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Java
+
+* Eclipse
+---------
+Eclipse (Pespectiva Java EE):
+http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/junor
+
+* Plugin de google para eclipse:
+-----------------------------
+https://developers.google.com/appengine/downloads#Download_the_Google_Plugin_for_Eclipse
+
+
+===============================================================================================
+NOTA!: En este momento, el plugin de maven no funciona con appengine y objectify,
+ al compilar erróneamente.
+
+Configuración de maven:
+----------------------
+http://wiki.eclipse.org/Maven_Integration
+
+CREACION DEL ESQUELETO
+======================
+Proyecto base con JSP y Objectify:
+---------------------------------
+Según: http://www.kindleit.net/maven_gae_plugin/examples/index.html
+
+mvn archetype:generate -DarchetypeGroupId=net.kindleit -DarchetypeArtifactId=gae-archetype-objectify-jsp \
+ -DarchetypeVersion=0.7.3 -DgroupId=ar.com.dubix -DartifactId=coati-web \
+ -DarchetypeRepository=http://maven-gae-plugin.googlecode.com/svn/repository
+================================================================================================
+
+
+IMPORTACIÓN DEL PROYECTO EN EL WORKSPACE DE ECLIPSE.
+===================================================
+checkout:
+------------
+
+
+Importación al workspace de eclipse.
+------------------------------------
+* Abrir eclipse.
+* Ir al menu "File" -> "Import" y elegir "General" -> "Existing Projects into workspace".
+* Elegir la carpeta del proyecto en la opción "Select root directory", y dar "Finish".
+
+
+INSTALACIÓN DE LIBRERIAS AL PROYECTO ECLIPSE
+============================================
+Una vez importado el proyecto, se debe agregar las librerías deseadas al proyecto;
+para cada librería, se deben realizar 2 pasos:
+
+1) hacer click derecho en el proyecto dentro del tab "Project Explorer" y seleccionar la opción 
+   "Build Path" -> "Configure Build Path".
+2) hacer click en el botón "Add external jars" y seleccionar la librería.
+3) es necesario además copiar la misma librería al directorio
+   "war/WEB-INF/lib/" para que la encuentre al deployar
+
+Librerías externas requeridas:
+------------------------------
+* junit 4+
+* objectify 3.1+ 
+
+
+DEPLOY:
+=======
+1) hacer click derecho en el proyecto dentro del tab "Project Explorer" y seleccionar la opción
+   "Debug As" -> "Web Application".

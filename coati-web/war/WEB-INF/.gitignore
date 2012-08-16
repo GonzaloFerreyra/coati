@@ -1,3 +1,6 @@
 # se ignoran todas las librerías 
 ./lib/*.jar
 
+#se ignoran los datos generados por appengine
+coati-web/war/WEB-INF/appengine-generated
+

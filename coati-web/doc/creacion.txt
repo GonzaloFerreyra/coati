@@ -68,3 +68,9 @@ DEPLOY:
 =======
 1) hacer click derecho en el proyecto dentro del tab "Project Explorer" y seleccionar la opción
    "Debug As" -> "Web Application".
+   
+UNIT-TESTING:
+=============
+1) hacer click derecho en el proyecto dentro del tab "Project Explorer" y seleccionar la opción
+   "Run As" -> "JUnit Tests".
+

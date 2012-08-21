@@ -9,6 +9,11 @@ import javax.persistence.Id;
 @Entity
 public class Usuario implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	private Long id;
 	
@@ -104,6 +109,10 @@ public class Usuario implements Serializable {
 			throw new NombreUsuarioNuloException();
 		}
 		this.nombreUsuario = nombreUsuario.trim();
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getNombreUsuario() {

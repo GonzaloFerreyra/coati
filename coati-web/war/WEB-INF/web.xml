@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<!--  SERVLETS -->
 	<servlet>
-		<servlet-name>Coati_web</servlet-name>
-		<servlet-class>ar.com.dubix.coati.Coati_webServlet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>Cliente</servlet-name>
 		<servlet-class>ar.com.dubix.coati.cliente.ClienteServlet</servlet-class>
 	</servlet>
@@ -20,6 +16,10 @@
 			<param-value/>
 		</init-param>
 	</servlet>
+	<servlet>
+		<servlet-name>init</servlet-name>
+		<servlet-class>ar.com.dubix.coati.CoatiInitServlet</servlet-class>
+	</servlet>
 	<!-- MAPEOS -->
 	<servlet-mapping>
 		<servlet-name>Cliente</servlet-name>
@@ -30,8 +30,8 @@
 		<url-pattern>/usuarios</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Coati_web</servlet-name>
-		<url-pattern>/coati_web</url-pattern>
+		<servlet-name>init</servlet-name>
+		<url-pattern>/init</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>SystemServiceServlet</servlet-name>

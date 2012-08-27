@@ -9,7 +9,10 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import ar.com.dubix.coati.InicializadorTest;
 
 public class UsuariosServletITTest {
 
@@ -17,6 +20,11 @@ public class UsuariosServletITTest {
 	private static final String nombre = "nombre";
 	private static final String email = "gonzalo.ferreyra@gmail.com";
 
+	@Before
+	public void inicializar() throws Exception {
+		InicializadorTest.limpiarClaseDelStore("ar.com.dubix.coati.seguridad.Usuario");
+	}
+	
 	@Test
 	public void testCrearUsuarioAdministrador() throws Exception {
 		

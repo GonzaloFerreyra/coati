@@ -12,15 +12,25 @@ public class UsuarioDAO extends CoatiDAO {
 			final String validacionPassword, final String nombre,
 			final String email, final String telefono)
 			throws UsuarioException {
+		java.util.Date iniciando = new java.util.Date();
+		System.out.println("Iniciando nuevo administrador en " + iniciando.getTime() +
+				"...");
         Objectify ofy = CoatiDAO.getObjectifyService();
         Usuario guardado = ofy.query(Usuario.class).
         		filter("nombreUsuario", nombreUsuario).get();
         if (guardado != null) {
-        	throw new NombreUsuarioYaExisteException(nombreUsuario);
+    		java.util.Date finalizando = new java.util.Date();
+    		NombreUsuarioYaExisteException ex = new NombreUsuarioYaExisteException(nombreUsuario);
+    		System.out.println("Error: " + ex.getMessage() + " en " + finalizando.getTime() +
+    				"...");
+        	throw ex;
         }
         UsuarioAdministrador nuevo = new UsuarioAdministrador(nombreUsuario, 
         		password, validacionPassword, nombre, email, telefono);
         ofy.put(nuevo);
+		java.util.Date finalizando = new java.util.Date();
+		System.out.println("Finalizando nuevo administrador en " + finalizando.getTime() +
+				"...");
         return nuevo;
 	}
 }

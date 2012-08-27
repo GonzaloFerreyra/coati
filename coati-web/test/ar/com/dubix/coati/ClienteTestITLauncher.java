@@ -5,12 +5,19 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import ar.com.dubix.coati.cliente.Cliente;
 import static org.junit.Assert.*;
 
 
 public class ClienteTestITLauncher {
-
+	
+	@Before
+	public void inicializar() throws Exception {
+		InicializadorTest.limpiarClaseDelStore("ar.com.dubix.coati.cliente.Cliente");
+	}
 	
 	@Test
 	public void clienteDAOTestIT() throws Exception {

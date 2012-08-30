@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import ar.com.dubix.coati.facturacion.CategoriaFiscal;
 import ar.com.dubix.coati.util.StringUtil;
 
-import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Unindexed;
 
 @Entity
@@ -33,7 +32,7 @@ public class Empresa implements Serializable {
 	@Unindexed
 	private String nombreProvincia;
 	@Unindexed
-	private Key<CategoriaFiscal> categoriaFiscal;
+	private String categoriaFiscal;
 
 	/**
 	 * Constructor para Objectify
@@ -128,8 +127,7 @@ public class Empresa implements Serializable {
 		if (categoriaFiscal == null) {
 			throw new CategoriaFiscalException();
 		}
-		this.categoriaFiscal = new Key<CategoriaFiscal>(CategoriaFiscal.class,
-				categoriaFiscal.getDescripcion());
+		this.categoriaFiscal = categoriaFiscal.getDescripcion();
 	}
 
 	public String getNombre() {
@@ -158,6 +156,10 @@ public class Empresa implements Serializable {
 
 	public String getNombreProvincia() {
 		return nombreProvincia;
+	}
+
+	public String getCategoriaFiscal() {
+		return categoriaFiscal;
 	}
 
 	public void setNombre(String nombre) throws NombreEmpresaException {

@@ -20,7 +20,9 @@ public class Empresa implements Serializable {
 
 	@Id
 	private Long id;
+	//etiqueta para uso como nickname; debe ser unico
 	private String nombre;
+
 	private String razonSocial;
 	private String cuit;
 	@Unindexed

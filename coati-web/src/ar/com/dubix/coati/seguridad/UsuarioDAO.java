@@ -13,9 +13,9 @@ public class UsuarioDAO extends CoatiDAO {
 			final String email, final String telefono)
 			throws UsuarioException {
 		java.util.Date iniciando = new java.util.Date();
-		System.out.println("Iniciando nuevo administrador en " + iniciando.getTime() +
+		System.out.println("Iniciando 'nuevoAdministrador' en " + iniciando.getTime() +
 				"...");
-        Objectify ofy = CoatiDAO.getObjectifyService();
+        Objectify ofy = getObjectifyService();
         Usuario guardado = ofy.query(Usuario.class).
         		filter("nombreUsuario", nombreUsuario).get();
         if (guardado != null) {
@@ -29,7 +29,7 @@ public class UsuarioDAO extends CoatiDAO {
         		password, validacionPassword, nombre, email, telefono);
         ofy.put(nuevo);
 		java.util.Date finalizando = new java.util.Date();
-		System.out.println("Finalizando nuevo administrador en " + finalizando.getTime() +
+		System.out.println("Finalizando 'nuevoAdministrador' en " + finalizando.getTime() +
 				"...");
         return nuevo;
 	}
